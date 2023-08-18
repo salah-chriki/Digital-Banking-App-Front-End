@@ -1,0 +1,29 @@
+<div class="container mt-2">
+  <div class="card">
+    <div class="card-header">Customer accounts</div>
+    <div class="card-body">
+
+      {{customer | json}}
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Balance</th>
+          <th>Creation Date</th>
+          <th>Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of customerAccounts | async">
+          <td>{{c.id}}</td>
+          <td>{{c.balance | number:"1.2-2"}}</td>
+          <td>{{c.createdAt | date:"dd-MM-YYYY"}} </td>
+          <td>{{c.type}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
